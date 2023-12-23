@@ -1,0 +1,10 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+
+:root{
+	--primary-1: #84b6f4;
+}
+
+.bg-primary-1{
+	background: var(--primary-1);
+}
