@@ -18,7 +18,7 @@ export default function Footer() {
           </NavItem>
         ))}
       </ul>
-      <p className="text-center text-white">&copy; 2023 Company, Inc</p>
+      <p className="text-center text-white">&copy; 2023 Decorarte</p>
     </footer>
   );
 }

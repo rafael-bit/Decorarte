@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Logo from '/logo.png';
 
 const PromotionIcon = (
@@ -35,6 +35,27 @@ export default function Header() {
     { label: 'Conta', icon: AccountIcon, link: 'Conta' },
   ];
 
+  const [isFixed, setIsFixed] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const threshold = 125;
+      const windowWidth = window.innerWidth;
+
+      if (windowWidth <= 991 && scrollPosition > threshold) {
+        setIsFixed(true);
+      } else {
+        setIsFixed(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <header>
       <div className="bg-primary-1 py-2">
@@ -45,10 +66,10 @@ export default function Header() {
               Decorarte
             </a>
 
-            <ul className="nav col-12 col-lg-auto my-0 justify-content-center my-md-0 text-small">
+            <ul className={`bg-primary-1 nav col-12 col-lg-auto my-0 justify-content-center my-md-0 text-small ${isFixed ? 'position-fixed top-0 start-50 translate-middle-x' : ''}`}>
               {menuItems.map((item, index) => (
                 <li key={index}>
-                  <a href={item.link} className="nav-link text-white">
+                  <a href={item.link} className="nav-link text-white d-flex flex-column align-items-center">
                     {item.icon}
                     {item.label}
                   </a>
