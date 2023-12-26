@@ -56,7 +56,7 @@ Siga estas etapas para executar o projeto em sua máquina local:
    npm start
    ```
 
-5. Acesse a aplicação no seu navegador através do endereço `http://localhost:3000`.
+5. Acesse a aplicação no seu navegador através do endereço `http://localhost:5173/`.
 
 ## Contribuindo
 
@@ -70,8 +70,4 @@ Se deseja contribuir com o Decorarte, siga estas diretrizes:
 
 ## Autor
 
-- [Rafael](https://github.com/rafael)
-
----
-
-Espero que isso se alinhe mais com o que você precisa para o projeto Decorarte!
+- [Rafael](https://github.com/rafael-bit)
