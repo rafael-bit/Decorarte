@@ -10,7 +10,7 @@ const navItems = [
 
 export default function Footer() {
   return (
-    <footer className="bg-primary-1 py-3 my-4">
+    <footer className="bg-primary-1 py-3 mt-4">
       <ul className="nav justify-content-center border-bottom pb-3 mb-3">
         {navItems.map((item, index) => (
           <NavItem key={index} href={item.href}>

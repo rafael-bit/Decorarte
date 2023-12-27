@@ -16,6 +16,18 @@ const navItems = [
   ) }
 ];
 
+const drop = [
+  {
+    href: '/minhascompras', label: 'Minhas Compras'
+  },
+  {
+    href: '/perfil', label: 'Perfil'
+  },
+  {
+    href: '/login', label: 'Login'
+  }
+]
+
 export default function Header() {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -48,7 +60,7 @@ export default function Header() {
             src={Logo}
             alt="Logo"
             className="img-fluid my-2"
-            style={{ maxWidth: '90%', height: '80%' }}
+            style={{ maxWidth: '5em', height: 'auto' }}
           />
         </a>
         <div className="d-flex align-items-center mt-2">
@@ -109,7 +121,7 @@ const DesktopMenu = () => (
       </svg>
     </a>
     <ul className="dropdown-menu text-small shadow">
-      {navItems.map((item, index) => (
+      {drop.map((item, index) => (
         <li key={index}>
           <a className="dropdown-item" href={item.href}>{item.label}</a>
         </li>
