@@ -1,0 +1,91 @@
+{
+	"produtos": [
+		{
+			"categoria": "Móveis",
+			"itens": [
+				{
+					"id": 1,
+					"nome": "Sofá Chesterfield",
+					"descricao": "Sofá clássico Chesterfield em couro genuíno",
+					"preco": 1899.99,
+					"imagem": "/product1.jpeg"
+				},
+				{
+					"id": 2,
+					"nome": "Cadeira Eames",
+					"descricao": "Cadeira Eames em plástico resistente e design moderno",
+					"preco": 149.99,
+					"imagem": "/product2.jpeg"
+				},
+				{
+					"id": 3,
+					"nome": "Cama King Size",
+					"descricao": "Cama King Size estofada com cabeceira capitonê",
+					"preco": 1299.99,
+					"imagem": "/product3.jpeg"
+				}
+			]
+		},
+		{
+			"categoria": "Iluminação",
+			"itens": [
+				{
+					"id": 4,
+					"nome": "Luminária de Teto Moderna",
+					"descricao": "Luminária de teto em metal com design minimalista",
+					"preco": 199.99,
+					"imagem": "/product4.jpeg"
+				},
+				{
+					"id": 5,
+					"nome": "Abajur de Piso Articulado",
+					"descricao": "Abajur de piso ajustável em alumínio",
+					"preco": 99.99,
+					"imagem": "/product5.jpeg"
+				}
+			]
+		},
+		{
+			"categoria": "Tapetes",
+			"itens": [
+				{
+					"id": 6,
+					"nome": "Tapete Shaggy Cinza",
+					"descricao": "Tapete felpudo em tom cinza, 100% poliéster",
+					"preco": 79.99,
+					"imagem": "/product6.jpeg"
+				},
+				{
+					"id": 7,
+					"nome": "Tapete Oriental",
+					"descricao": "Tapete de estilo oriental em tons vibrantes",
+					"preco": 149.99,
+					"imagem": "/product7.jpeg"
+				}
+			]
+		},
+		{
+			"categoria": "Promoções",
+			"itens": [
+				{
+					"id": 8,
+					"nome": "Conjunto de Mesas de Centro",
+					"descricao": "Conjunto com duas mesas de centro em madeira maciça",
+					"preco": 249.99,
+					"imagem": "/product8.jpeg",
+					"precoOriginal": 299.99,
+					"descontoPercentual": 20
+				},
+				{
+					"id": 9,
+					"nome": "Luminária Pendente Industrial",
+					"descricao": "Luminária pendente estilo industrial",
+					"preco": 79.99,
+					"imagem": "/product8.jpeg",
+					"precoOriginal": 99.99,
+					"descontoPercentual": 20
+				}
+			]
+		}
+	]
+}

@@ -1,5 +1,42 @@
+import React, { useState, useEffect } from 'react';
 
 export default function Home() {
+	const [showButton, setShowButton] = useState(false);
+  const [displayedProducts, setDisplayedProducts] = useState([]);
+
+  useEffect(() => {
+    const toggleButton = () => {
+      const scrollY = window.scrollY;
+      if (scrollY > 250) {
+        setShowButton(true);
+      } else {
+        setShowButton(false);
+      }
+    };
+
+    window.addEventListener('scroll', toggleButton);
+
+    return () => window.removeEventListener('scroll', toggleButton);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
+  useEffect(() => {
+    fetch('/api.json')
+      .then((response) => response.json())
+      .then((data) => {
+        const allProducts = data?.produtos || [];
+        setDisplayedProducts(allProducts);
+      })
+      .catch((error) => console.error('Erro ao buscar produtos:', error));
+  }, []);
+
+
 	return (
 		<>
 			<div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel">
@@ -39,7 +76,7 @@ export default function Home() {
 					<div className="d-smx-none col-md-3">
 						<div className="card">
 							<div className="card-body">
-								<a href="" className="nav-link">
+								<a href="/produtos/moveis" className="nav-link">
 									<h5 className="card-title d-flex align-items-center justify-content-center card-h text-primary-card">
 										<img
 											src="/moveis.svg"
@@ -56,7 +93,7 @@ export default function Home() {
 					<div className="d-smx-none col-md-3">
 						<div className="card">
 							<div className="card-body">
-								<a href="" className="nav-link">
+								<a href="produtos/iluminacao" className="nav-link">
 									<h5 className="card-title d-flex align-items-center justify-content-center card-h text-primary-card">
 										<img
 											src="/iluminacao.svg"
@@ -73,7 +110,7 @@ export default function Home() {
 					<div className="d-smx-none col-md-3">
 						<div className="card">
 							<div className="card-body">
-								<a href="" className="nav-link">
+								<a href="/produtos/tapetes" className="nav-link">
 									<h5 className="card-title d-flex align-items-center justify-content-center card-h text-primary-card">
 										<img
 											src="/tapetes.svg"
@@ -90,7 +127,7 @@ export default function Home() {
 					<div className="d-smx-none col-md-3">
 						<div className="card">
 							<div className="card-body">
-								<a href="" className="nav-link">
+								<a href="/promocao" className="nav-link">
 									<h5 className="card-title d-flex align-items-center justify-content-center card-h text-primary-card">
 										<img
 											src="/promocao.svg"
@@ -103,9 +140,39 @@ export default function Home() {
 							</div>
 						</div>
 					</div>
-
 				</div>
 			</div>
+
+			
+			<div className="container mt-5">
+        <h2 className='text-center'>Todos os Produtos</h2>
+        {displayedProducts.map((category) => (
+          <div key={category.categoria}>
+            <h3 className='mt-5'>{category.categoria}</h3>
+            <div className="row">
+              {category.itens.map((product) => (
+                <div key={product.id} className="card rounded col-md-3">
+                  <div className='card-body text-center'>
+                    <img src={product.imagem} alt={product.nome} />
+                    <h4>{product.nome}</h4>
+                    <p>{product.descricao}</p>
+                    <p>Preço: R$ {product.preco}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+			 {showButton && (
+        <button
+          onClick={scrollToTop}
+          className="btn btn-primary rounded-circle position-fixed bottom-0 end-0 m-3 p-3 d-flex"
+          style={{ zIndex: 1000 }}
+				>
+					<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-caret-up" viewBox="0 0 16 16"><path d="M3.204 11h9.592L8 5.519 3.204 11zm-.753-.659 4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659z"/></svg>
+        </button>
+      )}
 		</>
 	)
 }
